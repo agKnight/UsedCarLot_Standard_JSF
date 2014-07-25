@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaintenanceScheduleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaintenanceScheduleEmpty}" rendered="#{maintenanceScheduleController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maintenanceScheduleController.items.rowCount > 0}">
+                    <h:outputText value="#{maintenanceScheduleController.pagination.pageFirstItem + 1}..#{maintenanceScheduleController.pagination.pageLastItem + 1}/#{maintenanceScheduleController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandButton action="#{maintenanceScheduleController.previous}" value="#{bundle.Previous} #{maintenanceScheduleController.pagination.pageSize}" rendered="#{maintenanceScheduleController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton action="#{maintenanceScheduleController.next}" value="#{bundle.Next} #{maintenanceScheduleController.pagination.pageSize}" rendered="#{maintenanceScheduleController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maintenanceScheduleController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_vehicleVin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vehicleVin}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_engineTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.engineTest}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_enginePass}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enginePass}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_brakeTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.brakeTest}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_brakePass}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.brakePass}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_electricalTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.electricalTest}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_electricalPass}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.electricalPass}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_fluidTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fluidTest}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_fluidPass}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fluidPass}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_tiretest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiretest}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_tirePass}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tirePass}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_windowTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.windowTest}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_windowPass}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.windowPass}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_roadTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.roadTest}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_roadPass}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.roadPass}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaintenanceScheduleTitle_vehicle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vehicle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maintenanceScheduleController.prepareView}" value="#{bundle.ListMaintenanceScheduleViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maintenanceScheduleController.prepareEdit}" value="#{bundle.ListMaintenanceScheduleEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandButton action="#{maintenanceScheduleController.destroy}" value="#{bundle.ListMaintenanceScheduleDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandButton action="#{maintenanceScheduleController.prepareCreate}" value="#{bundle.ListMaintenanceScheduleCreateLink}"/>
+                <br />
+                <br />
+                <h:commandButton action="/index" value="#{bundle.ListMaintenanceScheduleIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

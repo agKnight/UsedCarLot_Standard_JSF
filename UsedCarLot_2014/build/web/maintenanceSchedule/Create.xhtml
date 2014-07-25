@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMaintenanceScheduleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_vehicleVin}" for="vehicleVin" />
+                    <h:inputText id="vehicleVin" value="#{maintenanceScheduleController.selected.vehicleVin}" title="#{bundle.CreateMaintenanceScheduleTitle_vehicleVin}" required="true" requiredMessage="#{bundle.CreateMaintenanceScheduleRequiredMessage_vehicleVin}"/>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_engineTest}" for="engineTest" />
+                    <h:inputText id="engineTest" value="#{maintenanceScheduleController.selected.engineTest}" title="#{bundle.CreateMaintenanceScheduleTitle_engineTest}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_enginePass}" for="enginePass" />
+                    <h:inputText id="enginePass" value="#{maintenanceScheduleController.selected.enginePass}" title="#{bundle.CreateMaintenanceScheduleTitle_enginePass}" />
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_brakeTest}" for="brakeTest" />
+                    <h:inputText id="brakeTest" value="#{maintenanceScheduleController.selected.brakeTest}" title="#{bundle.CreateMaintenanceScheduleTitle_brakeTest}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_brakePass}" for="brakePass" />
+                    <h:inputText id="brakePass" value="#{maintenanceScheduleController.selected.brakePass}" title="#{bundle.CreateMaintenanceScheduleTitle_brakePass}" />
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_electricalTest}" for="electricalTest" />
+                    <h:inputText id="electricalTest" value="#{maintenanceScheduleController.selected.electricalTest}" title="#{bundle.CreateMaintenanceScheduleTitle_electricalTest}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_electricalPass}" for="electricalPass" />
+                    <h:inputText id="electricalPass" value="#{maintenanceScheduleController.selected.electricalPass}" title="#{bundle.CreateMaintenanceScheduleTitle_electricalPass}" />
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_fluidTest}" for="fluidTest" />
+                    <h:inputText id="fluidTest" value="#{maintenanceScheduleController.selected.fluidTest}" title="#{bundle.CreateMaintenanceScheduleTitle_fluidTest}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_fluidPass}" for="fluidPass" />
+                    <h:inputText id="fluidPass" value="#{maintenanceScheduleController.selected.fluidPass}" title="#{bundle.CreateMaintenanceScheduleTitle_fluidPass}" />
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_tiretest}" for="tiretest" />
+                    <h:inputText id="tiretest" value="#{maintenanceScheduleController.selected.tiretest}" title="#{bundle.CreateMaintenanceScheduleTitle_tiretest}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_tirePass}" for="tirePass" />
+                    <h:inputText id="tirePass" value="#{maintenanceScheduleController.selected.tirePass}" title="#{bundle.CreateMaintenanceScheduleTitle_tirePass}" />
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_windowTest}" for="windowTest" />
+                    <h:inputText id="windowTest" value="#{maintenanceScheduleController.selected.windowTest}" title="#{bundle.CreateMaintenanceScheduleTitle_windowTest}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_windowPass}" for="windowPass" />
+                    <h:inputText id="windowPass" value="#{maintenanceScheduleController.selected.windowPass}" title="#{bundle.CreateMaintenanceScheduleTitle_windowPass}" />
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_roadTest}" for="roadTest" />
+                    <h:inputText id="roadTest" value="#{maintenanceScheduleController.selected.roadTest}" title="#{bundle.CreateMaintenanceScheduleTitle_roadTest}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_roadPass}" for="roadPass" />
+                    <h:inputText id="roadPass" value="#{maintenanceScheduleController.selected.roadPass}" title="#{bundle.CreateMaintenanceScheduleTitle_roadPass}" />
+                    <h:outputLabel value="#{bundle.CreateMaintenanceScheduleLabel_vehicle}" for="vehicle" />
+                    <h:selectOneMenu id="vehicle" value="#{maintenanceScheduleController.selected.vehicle}" title="#{bundle.CreateMaintenanceScheduleTitle_vehicle}" required="true" requiredMessage="#{bundle.CreateMaintenanceScheduleRequiredMessage_vehicle}">
+                        <f:selectItems value="#{vehicleController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{maintenanceScheduleController.create}" value="#{bundle.CreateMaintenanceScheduleSaveLink}" />
+                <br />
+                <br />
+                <h:commandButton action="#{maintenanceScheduleController.prepareList}" value="#{bundle.CreateMaintenanceScheduleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandButton action="/index" value="#{bundle.CreateMaintenanceScheduleIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

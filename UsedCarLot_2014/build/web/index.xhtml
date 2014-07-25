@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Used Car Lot</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <center style="font-size: 24pt">JSF Used Car Lot</center>
+        <br />
+        <h:form>
+            <table align="center">
+                <tr>
+                    <td><h:commandButton action="/vehicle/List" value="Show All Vehicle Items"/></td>
+                    <br />
+                    <td><h:commandButton action="/previousOwner/List" value="Show All PreviousOwner Items"/></td>
+                    <br />
+                    <td><h:commandButton action="/newOwner/List" value="Show All NewOwner Items"/></td>
+                    <br />
+                    <td><h:commandButton action="/maintenanceSchedule/List" value="Show All MaintenanceSchedule Items"/></td>
+                    <br />
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

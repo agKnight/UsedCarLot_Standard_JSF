@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaintenanceScheduleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_vehicleVin}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.vehicleVin}" title="#{bundle.ViewMaintenanceScheduleTitle_vehicleVin}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_engineTest}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.engineTest}" title="#{bundle.ViewMaintenanceScheduleTitle_engineTest}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_enginePass}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.enginePass}" title="#{bundle.ViewMaintenanceScheduleTitle_enginePass}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_brakeTest}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.brakeTest}" title="#{bundle.ViewMaintenanceScheduleTitle_brakeTest}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_brakePass}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.brakePass}" title="#{bundle.ViewMaintenanceScheduleTitle_brakePass}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_electricalTest}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.electricalTest}" title="#{bundle.ViewMaintenanceScheduleTitle_electricalTest}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_electricalPass}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.electricalPass}" title="#{bundle.ViewMaintenanceScheduleTitle_electricalPass}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_fluidTest}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.fluidTest}" title="#{bundle.ViewMaintenanceScheduleTitle_fluidTest}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_fluidPass}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.fluidPass}" title="#{bundle.ViewMaintenanceScheduleTitle_fluidPass}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_tiretest}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.tiretest}" title="#{bundle.ViewMaintenanceScheduleTitle_tiretest}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_tirePass}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.tirePass}" title="#{bundle.ViewMaintenanceScheduleTitle_tirePass}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_windowTest}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.windowTest}" title="#{bundle.ViewMaintenanceScheduleTitle_windowTest}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_windowPass}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.windowPass}" title="#{bundle.ViewMaintenanceScheduleTitle_windowPass}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_roadTest}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.roadTest}" title="#{bundle.ViewMaintenanceScheduleTitle_roadTest}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_roadPass}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.roadPass}" title="#{bundle.ViewMaintenanceScheduleTitle_roadPass}"/>
+                    <h:outputText value="#{bundle.ViewMaintenanceScheduleLabel_vehicle}"/>
+                    <h:outputText value="#{maintenanceScheduleController.selected.vehicle}" title="#{bundle.ViewMaintenanceScheduleTitle_vehicle}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{maintenanceScheduleController.destroyAndView}" value="#{bundle.ViewMaintenanceScheduleDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandButton action="Edit" value="#{bundle.ViewMaintenanceScheduleEditLink}"/>
+                <br />
+                <h:commandButton action="#{maintenanceScheduleController.prepareCreate}" value="#{bundle.ViewMaintenanceScheduleCreateLink}" />
+                <br />
+                <h:commandButton action="#{maintenanceScheduleController.prepareList}" value="#{bundle.ViewMaintenanceScheduleShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandButton action="/index" value="#{bundle.ViewMaintenanceScheduleIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

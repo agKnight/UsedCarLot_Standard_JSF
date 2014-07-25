@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditVehicleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_vin}" for="vin" />
+                    <h:inputText id="vin" value="#{vehicleController.selected.vin}" title="#{bundle.EditVehicleTitle_vin}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_vin}"/>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_make}" for="make" />
+                    <h:inputText id="make" value="#{vehicleController.selected.make}" title="#{bundle.EditVehicleTitle_make}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_make}"/>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_model}" for="model" />
+                    <h:inputText id="model" value="#{vehicleController.selected.model}" title="#{bundle.EditVehicleTitle_model}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_model}"/>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_year}" for="year" />
+                    <h:inputText id="year" value="#{vehicleController.selected.year}" title="#{bundle.EditVehicleTitle_year}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_year}"/>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_color}" for="color" />
+                    <h:inputText id="color" value="#{vehicleController.selected.color}" title="#{bundle.EditVehicleTitle_color}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_color}"/>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_onLot}" for="onLot" />
+                    <h:inputText id="onLot" value="#{vehicleController.selected.onLot}" title="#{bundle.EditVehicleTitle_onLot}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_onLot}"/>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_price}" for="price" />
+                    <h:inputText id="price" value="#{vehicleController.selected.price}" title="#{bundle.EditVehicleTitle_price}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_price}"/>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_maintenanceSchedule}" for="maintenanceSchedule" />
+                    <h:selectOneMenu id="maintenanceSchedule" value="#{vehicleController.selected.maintenanceSchedule}" title="#{bundle.EditVehicleTitle_maintenanceSchedule}" >
+                        <f:selectItems value="#{maintenanceScheduleController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_previousOwnerPreviousOwnerID}" for="previousOwnerPreviousOwnerID" />
+                    <h:selectOneMenu id="previousOwnerPreviousOwnerID" value="#{vehicleController.selected.previousOwnerPreviousOwnerID}" title="#{bundle.EditVehicleTitle_previousOwnerPreviousOwnerID}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_previousOwnerPreviousOwnerID}">
+                        <f:selectItems value="#{previousOwnerController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditVehicleLabel_newOwnerNewOwnerID}" for="newOwnerNewOwnerID" />
+                    <h:selectOneMenu id="newOwnerNewOwnerID" value="#{vehicleController.selected.newOwnerNewOwnerID}" title="#{bundle.EditVehicleTitle_newOwnerNewOwnerID}" required="true" requiredMessage="#{bundle.EditVehicleRequiredMessage_newOwnerNewOwnerID}">
+                        <f:selectItems value="#{newOwnerController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton action="#{vehicleController.update}" value="#{bundle.EditVehicleSaveLink}"/>
+                <br />
+                <br />
+                <h:commandButton action="View" value="#{bundle.EditVehicleViewLink}"/>
+                <br />
+                <h:commandButton action="#{vehicleController.prepareList}" value="#{bundle.EditVehicleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandButton action="/index" value="#{bundle.EditVehicleIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

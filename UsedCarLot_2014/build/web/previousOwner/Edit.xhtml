@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPreviousOwnerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPreviousOwnerLabel_previousOwnerID}" for="previousOwnerID" />
+                    <h:inputText id="previousOwnerID" value="#{previousOwnerController.selected.previousOwnerID}" title="#{bundle.EditPreviousOwnerTitle_previousOwnerID}" required="true" requiredMessage="#{bundle.EditPreviousOwnerRequiredMessage_previousOwnerID}"/>
+                    <h:outputLabel value="#{bundle.EditPreviousOwnerLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{previousOwnerController.selected.firstName}" title="#{bundle.EditPreviousOwnerTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.EditPreviousOwnerLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{previousOwnerController.selected.lastName}" title="#{bundle.EditPreviousOwnerTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.EditPreviousOwnerLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{previousOwnerController.selected.address}" title="#{bundle.EditPreviousOwnerTitle_address}" />
+                    <h:outputLabel value="#{bundle.EditPreviousOwnerLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{previousOwnerController.selected.city}" title="#{bundle.EditPreviousOwnerTitle_city}" />
+                    <h:outputLabel value="#{bundle.EditPreviousOwnerLabel_postalCode}" for="postalCode" />
+                    <h:inputText id="postalCode" value="#{previousOwnerController.selected.postalCode}" title="#{bundle.EditPreviousOwnerTitle_postalCode}" />
+                </h:panelGrid>
+                <h:commandButton action="#{previousOwnerController.update}" value="#{bundle.EditPreviousOwnerSaveLink}"/>
+                <br />
+                <br />
+                <h:commandButton action="View" value="#{bundle.EditPreviousOwnerViewLink}"/>
+                <br />
+                <h:commandButton action="#{previousOwnerController.prepareList}" value="#{bundle.EditPreviousOwnerShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandButton action="/index" value="#{bundle.EditPreviousOwnerIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
